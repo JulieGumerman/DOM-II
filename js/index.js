@@ -5,6 +5,8 @@
 
 window.addEventListener("scroll", (event) => {
     document.querySelector("body").style.background = "red";
+    event.preventDefault();
+    event.stopPropagation();
 });
 
 //event 2: mouseover
@@ -12,48 +14,41 @@ window.addEventListener("scroll", (event) => {
 const firstHTwo = document.querySelector("h2");
 firstHTwo.addEventListener("mouseover", (event) => {
     firstHTwo.style.fontSize = "100px";
+    event.stopPropagation();
 });
 
 //event 3
 
-/* const navA = document.querySelectorAll("nav");
-navA.addEventListener("dblclick", (event) => {
-    navA.forEach(event => {
-        alert(event);
-    })
-    
-});  */
+
 
 const navA = document.querySelectorAll('.nav-link');
-navA.forEach((e) => e.addEventListener('dblclick', (event) => alert("Spain is so lovely this time of year.")));
+navA.forEach((e) => {
+    e.addEventListener('click', (event) => {
+        alert("Spain is so lovely this time of year.");
+        event.stopPropagation();
+    }
+        );
+        
+});//forEach
 
 
 
 //event 4
-let imgs = document.querySelector(".img-content");
-//let daBod = document.querySelector("body");
-/* window.addEventListener("resize", event => {
-    imgs.style.display = "none";
-}); */
 
-/* window.addEventListener('resize', () => {
-    imgs.target.style.display = "none";
- }); */
 let navNav = document.querySelector(".nav-container");
  window.addEventListener("resize", function(event){
      console.log('resize!');
     navNav.style.backgroundColor = "pink";
-    event.stopPropagation();
     },
       true);
-navNav.addEventListener("click", ()=> {
+navNav.addEventListener("dblclick", ()=> {
     navNav.style.border = "15px purple dashed";
 })
 //event 5
 
 let keyDown = document.querySelector('header div h1');
 window.addEventListener('keydown', (event) => {
-      keyDown.style.backgroundColor = "blue"
+      keyDown.style.backgroundColor = "blue";
     })
 
 
@@ -63,6 +58,7 @@ let mapImage = document.querySelector(".img-content");
 console.log(mapImage);
 mapImage.addEventListener("wheel", (event) => {
     mapImage.style.transform = "skewY(30deg)";
+    event.stopPropagation();
 });
 
 //event 7
@@ -71,11 +67,13 @@ let dragDrop = document.querySelector(".img-fluid");
 
 document.addEventListener("drag", event => {
     dragDrop.style.border = "10px solid black";
+    event.stopPropagation();
 });
 //event 8
 
 window.addEventListener("load", event => {
     alert("Welcome to a hot mess");
+    event.stopPropagation();
 })
 
 //event 9
@@ -85,13 +83,8 @@ let leaveMouse = document.querySelector(".destination"); leaveMouse.addEventList
 
 //event 10
 
-let selection = document.querySelector(".select-here");
-let textChange = document.querySelector(".change-this-text");
-
-document.addEventListener("select", () => {
-    console.log("You selected some text.")
+window.addEventListener("copy", (event) => {
+    console.log("Your stuff has been copied!");
+    event.stopPropagation();
 });
 
-window.addEventListener("copy", () => {
-    console.log("Someone copied some stuff");
-})
