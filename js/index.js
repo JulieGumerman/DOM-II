@@ -18,7 +18,7 @@ firstHTwo.addEventListener("mouseover", (event) => {
 });
 
 //event 3
-
+//.stopPropagation() example
 
 
 const navA = document.querySelectorAll('.nav-link');
@@ -41,6 +41,7 @@ let navNav = document.querySelector(".nav-container");
     navNav.style.backgroundColor = "pink";
     },
       true);
+
 navNav.addEventListener("dblclick", ()=> {
     navNav.style.border = "15px purple dashed";
 })
@@ -87,4 +88,6 @@ window.addEventListener("copy", (event) => {
     console.log("Your stuff has been copied!");
     event.stopPropagation();
 });
+
+
 
