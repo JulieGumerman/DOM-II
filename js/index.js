@@ -9,6 +9,7 @@ window.addEventListener("scroll", (event) => {
     event.stopPropagation();
 });
 
+
 //event 2: mouseover
 
 const firstHTwo = document.querySelector("h2");
@@ -18,7 +19,8 @@ firstHTwo.addEventListener("mouseover", (event) => {
 });
 
 //event 3
-//.stopPropagation() example
+//.stopPropagation() example 
+//preventdefault
 
 
 const navA = document.querySelectorAll('.nav-link');
@@ -26,8 +28,8 @@ navA.forEach((e) => {
     e.addEventListener('click', (event) => {
         alert("Spain is so lovely this time of year.");
         event.stopPropagation();
-    }
-        );
+        event.preventDefault();
+    });
         
 });//forEach
 
@@ -78,7 +80,7 @@ window.addEventListener("load", event => {
 })
 
 //event 9
-let leaveMouse = document.querySelector(".destination"); leaveMouse.addEventListener("mouseleave", () => {
+let leaveMouse = document.querySelector(".destination-img"); leaveMouse.addEventListener("mouseleave", () => {
     leaveMouse.style.border = "dotted white 15px";
 })
 
@@ -90,4 +92,17 @@ window.addEventListener("copy", (event) => {
 });
 
 
+//stopPropagation example 
 
+let destinationDiv = document.querySelectorAll(".destination");
+destinationDiv[0].addEventListener("click", () => {
+    destinationDiv[0].style.border = "15px darkorange solid";
+});
+
+let theButton = document.querySelectorAll(".btn");
+theButton[0].addEventListener("click", (event) => {
+    theButton[0].style.color = "greenyellow";
+    event.stopPropagation();
+})
+/* button click*/
+/* click div*/
